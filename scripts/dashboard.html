@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AEGIS Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <style>
+        body { background: #0a0a0a; color: #0f0; font-family: monospace; padding: 20px; }
+        h1 { border-bottom: 2px solid #0f0; }
+        #status { font-size: 24px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>AEGIS — Ionospheric Risk Dashboard</h1>
+    <div id="status">Loading...</div>
+    <canvas id="chart" width="800" height="300"></canvas>
+
+    <script>
+        fetch("http://127.0.0.1:5000/predict/IISC")
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("status").innerText =
+                    `IISC | +1h TEC disturbance: ${data.predicted_disturbance_1h.toFixed(2)} TECU | Risk: ${data.risk}`;
+            });
+    </script>
+</body>
+</html>
