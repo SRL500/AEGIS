@@ -13,46 +13,30 @@ feature_cols = [
     "Kp_lag1", "Kp_lag2", "Kp_lag3",
     "speed_lag1", "speed_lag2", "speed_lag3",
 ]
-target_col = "target_1h"
 
-X = df[feature_cols]
-y = df[target_col]
+horizons = {"1h": "target_1h", "3h": "target_3h", "6h": "target_6h"}
+models = {}
 
-# --- Time-based split: train on first 80%, test on most recent 20% ---
-split_idx = int(len(df) * 0.8)
-X_train, X_test = X.iloc[:split_idx], X.iloc[split_idx:]
-y_train, y_test = y.iloc[:split_idx], y.iloc[split_idx:]
+for label, target_col in horizons.items():
+    print(f"\n{'='*40}\nTraining model for +{label} horizon\n{'='*40}")
 
-print(f"Train rows: {len(X_train)}, Test rows: {len(X_test)}")
+    sub = df.dropna(subset=[target_col])
+    X = sub[feature_cols]
+    y = sub[target_col]
 
-model = XGBRegressor(
-    n_estimators=100,
-    max_depth=4,
-    learning_rate=0.1,
-    random_state=42
-)
-model.fit(X_train, y_train)
+    split_idx = int(len(sub) * 0.8)
+    X_train, X_test = X.iloc[:split_idx], X.iloc[split_idx:]
+    y_train, y_test = y.iloc[:split_idx], y.iloc[split_idx:]
 
-preds = model.predict(X_test)
+    model = XGBRegressor(n_estimators=100, max_depth=4, learning_rate=0.1, random_state=42)
+    model.fit(X_train, y_train)
+    preds = model.predict(X_test)
 
-mae = mean_absolute_error(y_test, preds)
-rmse = np.sqrt(mean_squared_error(y_test, preds))
+    mae = mean_absolute_error(y_test, preds)
+    rmse = np.sqrt(mean_squared_error(y_test, preds))
+    print(f"MAE: {mae:.3f} TECU | RMSE: {rmse:.3f} TECU | Train/Test: {len(X_train)}/{len(X_test)}")
 
-print(f"\n=== Model Performance (+1h horizon) ===")
-print(f"MAE:  {mae:.3f} TECU")
-print(f"RMSE: {rmse:.3f} TECU")
+    model.save_model(f"data/xgb_model_{label}.json")
+    models[label] = model
 
-print("\n--- Sample predictions vs actual ---")
-comparison = pd.DataFrame({
-    "actual": y_test.values[:10],
-    "predicted": preds[:10]
-})
-print(comparison)
-
-# Feature importance
-print("\n--- Feature importance ---")
-importance = pd.Series(model.feature_importances_, index=feature_cols).sort_values(ascending=False)
-print(importance)
-
-model.save_model("data/xgb_model_1h.json")
-print("\nModel saved to data/xgb_model_1h.json")
+print("\nAll horizon models trained and saved.")
