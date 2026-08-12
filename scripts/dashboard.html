@@ -15,12 +15,23 @@
     <canvas id="chart" width="800" height="300"></canvas>
 
     <script>
-        fetch("http://127.0.0.1:5000/predict/IISC")
+    const stations = ["IISC", "IITK", "DRDN"];
+    const statusDiv = document.getElementById("status");
+    statusDiv.innerHTML = "";
+
+    stations.forEach(station => {
+        fetch(`http://127.0.0.1:5000/predict/${station}`)
             .then(res => res.json())
             .then(data => {
-                document.getElementById("status").innerText =
-                    `IISC | +1h TEC disturbance: ${data.predicted_disturbance_1h.toFixed(2)} TECU | Risk: ${data.risk}`;
+                const line = document.createElement("div");
+                const color = data.risk === "Red" ? "#f00" : data.risk === "Yellow" ? "#ff0" : "#0f0";
+                line.innerHTML = `${data.station} | +1h disturbance: ${data.predicted_disturbance_1h.toFixed(2)} TECU | <span style="color:${color}">${data.risk}</span>`;
+                statusDiv.appendChild(line);
+            })
+            .catch(err => {
+                statusDiv.innerHTML += `<div>${station} - error loading</div>`;
             });
-    </script>
+    });
+</script>
 </body>
 </html>
