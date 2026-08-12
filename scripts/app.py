@@ -1,8 +1,10 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 import pandas as pd
 from xgboost import XGBRegressor
 
 app = Flask(__name__)
+CORS(app)
 
 model = XGBRegressor()
 model.load_model("data/xgb_model_1h.json")
