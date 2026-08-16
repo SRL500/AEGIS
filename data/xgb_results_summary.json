@@ -1,0 +1,74 @@
+{
+  "hyderabad_1h": {
+    "mae": 15.275182077011317,
+    "rmse": 19.634791945351253,
+    "train_rows": 19665,
+    "test_rows": 3471
+  },
+  "hyderabad_3h": {
+    "mae": 15.229317039470457,
+    "rmse": 19.640062327041946,
+    "train_rows": 19665,
+    "test_rows": 3471
+  },
+  "hyderabad_6h": {
+    "mae": 15.810459047588767,
+    "rmse": 20.53971366562759,
+    "train_rows": 19665,
+    "test_rows": 3471
+  },
+  "bangalore_1h": {
+    "mae": 12.570214020704698,
+    "rmse": 16.54268557161883,
+    "train_rows": 19665,
+    "test_rows": 3471
+  },
+  "bangalore_3h": {
+    "mae": 12.613910083500365,
+    "rmse": 16.55679011700104,
+    "train_rows": 19665,
+    "test_rows": 3471
+  },
+  "bangalore_6h": {
+    "mae": 12.778059909986743,
+    "rmse": 16.83080511977369,
+    "train_rows": 19665,
+    "test_rows": 3471
+  },
+  "lucknow_1h": {
+    "mae": 15.777088772698898,
+    "rmse": 21.67553855155681,
+    "train_rows": 19665,
+    "test_rows": 3471
+  },
+  "lucknow_3h": {
+    "mae": 15.780048576086076,
+    "rmse": 21.76048431013354,
+    "train_rows": 19665,
+    "test_rows": 3471
+  },
+  "lucknow_6h": {
+    "mae": 16.137282235684214,
+    "rmse": 22.301749626926977,
+    "train_rows": 19665,
+    "test_rows": 3471
+  },
+  "colombo_1h": {
+    "mae": 14.285377508345332,
+    "rmse": 18.30670894231414,
+    "train_rows": 19665,
+    "test_rows": 3471
+  },
+  "colombo_3h": {
+    "mae": 14.637921471465422,
+    "rmse": 18.692945237763094,
+    "train_rows": 19665,
+    "test_rows": 3471
+  },
+  "colombo_6h": {
+    "mae": 14.778583091737689,
+    "rmse": 19.03499062012803,
+    "train_rows": 19665,
+    "test_rows": 3471
+  }
+}
