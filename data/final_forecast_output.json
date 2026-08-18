@@ -1,0 +1,122 @@
+[
+  {
+    "station": "hyderabad",
+    "horizon": "1h",
+    "xgb_pred_latest": -7.133481502532959,
+    "lstm_pred_latest": -14.366869926452637,
+    "avg_model_delta": 11.776762962341309,
+    "confidence": 0.0,
+    "risk": "Yellow",
+    "action": "Hyderabad region: YELLOW risk in 1h. Monitor GAGAN augmentation status; degraded accuracy possible during approach."
+  },
+  {
+    "station": "hyderabad",
+    "horizon": "3h",
+    "xgb_pred_latest": 17.083383560180664,
+    "lstm_pred_latest": -3.9861655235290527,
+    "avg_model_delta": 13.378347396850586,
+    "confidence": 0.0,
+    "risk": "Yellow",
+    "action": "Hyderabad region: YELLOW risk in 3h. Monitor GAGAN augmentation status; degraded accuracy possible during approach."
+  },
+  {
+    "station": "hyderabad",
+    "horizon": "6h",
+    "xgb_pred_latest": 52.15733337402344,
+    "lstm_pred_latest": 35.16324234008789,
+    "avg_model_delta": 15.265337944030762,
+    "confidence": 0.0,
+    "risk": "Yellow",
+    "action": "Hyderabad region: YELLOW risk in 6h. Monitor GAGAN augmentation status; degraded accuracy possible during approach."
+  },
+  {
+    "station": "bangalore",
+    "horizon": "1h",
+    "xgb_pred_latest": 0.4605920910835266,
+    "lstm_pred_latest": -3.6782619953155518,
+    "avg_model_delta": 8.466773986816406,
+    "confidence": 0.0,
+    "risk": "Green",
+    "action": "Bangalore region: GREEN. Nominal conditions expected in 1h."
+  },
+  {
+    "station": "bangalore",
+    "horizon": "3h",
+    "xgb_pred_latest": 29.216943740844727,
+    "lstm_pred_latest": 14.046819686889648,
+    "avg_model_delta": 11.148879051208496,
+    "confidence": 0.0,
+    "risk": "Yellow",
+    "action": "Bangalore region: YELLOW risk in 3h. Monitor GAGAN augmentation status; degraded accuracy possible during approach."
+  },
+  {
+    "station": "bangalore",
+    "horizon": "6h",
+    "xgb_pred_latest": 62.455039978027344,
+    "lstm_pred_latest": 42.46421432495117,
+    "avg_model_delta": 13.511180877685547,
+    "confidence": 0.0,
+    "risk": "Yellow",
+    "action": "Bangalore region: YELLOW risk in 6h. Monitor GAGAN augmentation status; degraded accuracy possible during approach."
+  },
+  {
+    "station": "lucknow",
+    "horizon": "1h",
+    "xgb_pred_latest": 72.94366455078125,
+    "lstm_pred_latest": 57.33543395996094,
+    "avg_model_delta": 12.197466850280762,
+    "confidence": 0.0,
+    "risk": "Yellow",
+    "action": "Lucknow region: YELLOW risk in 1h. Monitor GAGAN augmentation status; degraded accuracy possible during approach."
+  },
+  {
+    "station": "lucknow",
+    "horizon": "3h",
+    "xgb_pred_latest": 97.34475708007812,
+    "lstm_pred_latest": 59.210105895996094,
+    "avg_model_delta": 16.541160583496094,
+    "confidence": 0.0,
+    "risk": "Yellow",
+    "action": "Lucknow region: YELLOW risk in 3h. Monitor GAGAN augmentation status; degraded accuracy possible during approach."
+  },
+  {
+    "station": "lucknow",
+    "horizon": "6h",
+    "xgb_pred_latest": 124.52898406982422,
+    "lstm_pred_latest": 87.2618637084961,
+    "avg_model_delta": 19.219226837158203,
+    "confidence": 0.0,
+    "risk": "Yellow",
+    "action": "Lucknow region: YELLOW risk in 6h. Monitor GAGAN augmentation status; degraded accuracy possible during approach."
+  },
+  {
+    "station": "colombo",
+    "horizon": "1h",
+    "xgb_pred_latest": -14.11405086517334,
+    "lstm_pred_latest": -16.245534896850586,
+    "avg_model_delta": 8.56412124633789,
+    "confidence": 0.0,
+    "risk": "Yellow",
+    "action": "Colombo region: YELLOW risk in 1h. Monitor GAGAN augmentation status; degraded accuracy possible during approach."
+  },
+  {
+    "station": "colombo",
+    "horizon": "3h",
+    "xgb_pred_latest": 22.018461227416992,
+    "lstm_pred_latest": -2.5764660835266113,
+    "avg_model_delta": 10.687417030334473,
+    "confidence": 0.0,
+    "risk": "Yellow",
+    "action": "Colombo region: YELLOW risk in 3h. Monitor GAGAN augmentation status; degraded accuracy possible during approach."
+  },
+  {
+    "station": "colombo",
+    "horizon": "6h",
+    "xgb_pred_latest": 60.185726165771484,
+    "lstm_pred_latest": 36.90224838256836,
+    "avg_model_delta": 14.73208236694336,
+    "confidence": 0.0,
+    "risk": "Yellow",
+    "action": "Colombo region: YELLOW risk in 6h. Monitor GAGAN augmentation status; degraded accuracy possible during approach."
+  }
+]
