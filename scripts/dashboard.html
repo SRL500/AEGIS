@@ -14,24 +14,29 @@
     <div id="status">Loading...</div>
     <canvas id="chart" width="800" height="300"></canvas>
 
-    <script>
-    const stations = ["IISC", "IITK", "DRDN"];
+<script>
+    const stations = ["hyderabad", "bangalore", "lucknow", "colombo"];
     const statusDiv = document.getElementById("status");
     statusDiv.innerHTML = "";
 
-    stations.forEach(station => {
-        fetch(`http://127.0.0.1:5000/predict/${station}`)
-            .then(res => res.json())
-            .then(data => {
+    fetch("http://127.0.0.1:5000/forecast/all")
+        .then(res => res.json())
+        .then(data => {
+            data.forEach(entry => {
+                const color = entry.risk === "Red" ? "#f00" : entry.risk === "Yellow" ? "#ff0" : "#0f0";
                 const line = document.createElement("div");
-                const color = data.risk === "Red" ? "#f00" : data.risk === "Yellow" ? "#ff0" : "#0f0";
-                line.innerHTML = `${data.station} | +1h disturbance: ${data.predicted_disturbance_1h.toFixed(2)} TECU | <span style="color:${color}">${data.risk}</span>`;
+                line.style.marginBottom = "8px";
+                line.innerHTML = `<b>${entry.station.toUpperCase()}</b> +${entry.horizon} |
+                    XGB: ${entry.xgb_pred_latest.toFixed(2)} TECU |
+                    Confidence: ${(entry.confidence * 100).toFixed(0)}% |
+                    <span style="color:${color}">${entry.risk}</span>
+                    <div style="font-size:12px; color:#888;">${entry.action}</div>`;
                 statusDiv.appendChild(line);
-            })
-            .catch(err => {
-                statusDiv.innerHTML += `<div>${station} - error loading</div>`;
             });
-    });
+        })
+        .catch(err => {
+            statusDiv.innerHTML = "Error loading forecasts — is app_v2.py running?";
+        });
 </script>
 </body>
 </html>
